@@ -1,0 +1,83 @@
+﻿<Window x:Class="ComputerGames.GameInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComputerGames"
+        mc:Ignorable="d"
+        Title="GameInfoWindow" Height="450" Width="800">
+    <Grid Margin="20">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        
+        <Border Grid.Column="0"
+                    CornerRadius="15"
+                    BorderBrush="#D1D5DB"
+                    BorderThickness="2">
+
+            <Image x:Name="GameImage"
+                       Stretch="UniformToFill"/>
+        </Border>
+
+        <!-- Информация -->
+        <StackPanel Grid.Column="1"
+                        Margin="25,0,0,0">
+
+            <TextBlock x:Name="TitleBlock"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           Foreground="#1F2937"
+                           Margin="0,0,0,20"/>
+
+            <Border Background="#2563EB"
+                        CornerRadius="10"
+                        Padding="12"
+                        Margin="0,0,0,10">
+                <TextBlock x:Name="GenreBlock"
+                               Foreground="White"
+                               FontSize="18"/>
+            </Border>
+
+            <Border Background="#059669"
+                        CornerRadius="10"
+                        Padding="12"
+                        Margin="0,0,0,10">
+                <TextBlock x:Name="RatingBlock"
+                               Foreground="White"
+                               FontSize="18"/>
+            </Border>
+
+            <Border Background="#DC2626"
+                        CornerRadius="10"
+                        Padding="12"
+                        Margin="0,0,0,10">
+                <TextBlock x:Name="AgeBlock"
+                               Foreground="White"
+                               FontSize="18"/>
+            </Border>
+
+            <Border Background="#7C3AED"
+                        CornerRadius="10"
+                        Padding="12"
+                        Margin="0,0,0,10">
+                <TextBlock x:Name="ReleaseBlock"
+                               Foreground="White"
+                               FontSize="18"/>
+            </Border>
+
+            <Border Background="#F59E0B"
+                        CornerRadius="10"
+                        Padding="12">
+                <TextBlock x:Name="ModeBlock"
+                               Foreground="White"
+                               FontSize="18"/>
+            </Border>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
