@@ -1,0 +1,150 @@
+﻿<Window x:Class="ComputerGames.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComputerGames"
+        mc:Ignorable="d"
+        Title="Games" Height="700" Width="1200">
+    <Grid>
+
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FF794890" Offset="0.1"/>
+                <GradientStop Color="#FF403873" Offset="0.5" />
+                <GradientStop Color="#FF0E0F1D" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="900"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Border Grid.Column="1"
+                CornerRadius="18"
+                Padding="45"
+                Background="#15FFFFFF"
+                BorderBrush="#33FFFFFF"
+                BorderThickness="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30"
+                                  ShadowDepth="0"
+                                  Color="#AA000000"/>
+                </Border.Effect>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+
+                    <TextBlock Grid.Row="0"
+                           Text="Добро пожаловать в Computer Games"
+                           Foreground="White"
+                           FontSize="40"
+                           FontWeight="Bold"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"/>
+
+
+                    <TextBlock Grid.Row="1"
+                           Text="Исследуйте нашу коллекцию компьютерных игр"
+                           Foreground="#CCFFFFFF"
+                           FontSize="20"
+                           Margin="0,10,0,0"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"/>
+
+
+                    <Button Grid.Row="3"
+                        Content="Перейти в каталог"
+                        Click="Goto_Catalog"
+                        FontSize="20"
+                        FontWeight="SemiBold"
+                        Width="260"
+                        Height="55"
+                        HorizontalAlignment="Center"
+                        Cursor="Hand"
+                        BorderThickness="0">
+
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#7F5AF0" Offset="0"/>
+                                <GradientStop Color="#2CB67D" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+
+                        <Button.Foreground>
+                            <SolidColorBrush Color="White"/>
+                        </Button.Foreground>
+
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="20"
+                                          ShadowDepth="0"
+                                          Color="#7F5AF0"/>
+                        </Button.Effect>
+                    </Button>
+
+
+                    <StackPanel Grid.Row="5"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Margin="0,20,0,0">
+
+                        <TextBlock Text="Папка:"
+                               Foreground="#CCFFFFFF"
+                               FontSize="18"
+                               VerticalAlignment="Center"/>
+
+                        <TextBlock x:Name="SavePath"
+                               Text="(не выбрана)"
+                               Foreground="#CCFFFFFF"
+                               FontSize="18"
+                               Margin="8,0"
+                               VerticalAlignment="Center"/>
+
+                        <Button Content="..."
+                            Width="36"
+                            Height="28"
+                            Margin="10,0,0,0"
+                            Click="LoadingPathClick"
+                            Cursor="Hand"
+                            BorderThickness="0">
+
+                            <Button.Background>
+                                <SolidColorBrush Color="#33FFFFFF"/>
+                            </Button.Background>
+
+                            <Button.Foreground>
+                                <SolidColorBrush Color="White"/>
+                            </Button.Foreground>
+
+                        </Button>
+
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+        </Grid>
+
+    </Grid>
+
+
+
+
+
+</Window>
