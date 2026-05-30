@@ -1,7 +1,9 @@
-﻿using Model.Core;
+using Model.Core;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Model.Data
@@ -10,6 +12,7 @@ namespace Model.Data
     {
         public override void Serialize(string filePath, List<Game> games)
         {
+        
             List<DTOGame> dtolist = new List<DTOGame>();
             foreach (Game game in games)
             {
@@ -38,7 +41,7 @@ namespace Model.Data
             }
 
             if (dtolist == null) return games;
-            foreach(var dto in dtolist)
+            foreach (var dto in dtolist)
             {
                 Game game = null;
 
@@ -59,5 +62,57 @@ namespace Model.Data
 
             return games;
         }
+        public void Serializeone(string filePath, Game game)
+        {
+            string file = Path.Combine(filePath, game.Title + ".xml");
+            DTOGame dto = new DTOGame(game);
+
+            var serializer = new XmlSerializer(typeof(DTOGame));
+
+            using (var writer = new StreamWriter(file))
+            {
+                serializer.Serialize(writer, dto);
+            }
+        }
+        public  Game Deserializeone(string filePath)
+        {
+            if (!File.Exists(filePath))
+                return null;
+
+            DTOGame dto;
+
+            var serializer = new XmlSerializer(typeof(DTOGame));
+
+            using (var reader = new StreamReader(filePath))
+            {
+                dto = (DTOGame)serializer.Deserialize(reader);
+            }
+
+            if (dto == null)
+                return null;
+
+            if (dto.Type == "Single")
+            {
+                return new SingleGame(dto.Title, dto.Genre, dto.AgeRating,
+                    dto.ReleaseDate, dto.Rating, dto.ImageURL);
+            }
+            else if (dto.Type == "Multiplayer")
+            {
+                return new MultiplayerGame(dto.Title, dto.Genre, dto.AgeRating,
+                    dto.ReleaseDate, dto.Rating, dto.ImageURL);
+            }
+            else if (dto.Type == "Online")
+            {
+                return new OnlineGame(dto.Title, dto.Genre, dto.AgeRating,
+                    dto.ReleaseDate, dto.Rating, dto.ImageURL);
+            }
+
+            return null;
+        }
+
+
+
+
+
     }
 }
