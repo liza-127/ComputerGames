@@ -1,4 +1,4 @@
-﻿<Window x:Class="ComputerGames.CatalogMain"
+<Window x:Class="ComputerGames.CatalogMain"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -68,7 +68,8 @@
                                FontWeight="SemiBold"/>
                         <ComboBox Name="Loading_file"
                               Width="200"
-                              Height="35">
+                              Height="35"
+                              SelectionChanged="FilterGames">
                             <ComboBoxItem IsSelected="True" IsEnabled="False">Выберите вариант...</ComboBoxItem>
                             <ComboBoxItem>XML</ComboBoxItem>
                             <ComboBoxItem>JSON</ComboBoxItem>
@@ -102,7 +103,8 @@
                       Width="420"
                       Height="50"
                       DisplayMemberPath="Title"
-                      Margin="20"/>
+                      Margin="20"
+                      SelectionChanged="ChoiseGame" />
 
                 <Button x:Name="ButtonImage"
                     Content="Показать данные"
